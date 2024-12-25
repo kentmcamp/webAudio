@@ -50,6 +50,17 @@ body {
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  position: relative;
+}
+
+.controls-title {
+  background-color: cyan;
+  color: black;
+  text-align: center;
+  margin: -10px -10px 10px -10px; /* Adjust margins to make the title flush with the container border */
+  padding: 5px 10px;
+  border-radius: 1em 1em 0 0; /* Rounded corners on the top */
+  font-size: 14px;
 }
 
 .control-row {
@@ -83,7 +94,6 @@ body {
 
 #controls button:active {
   transform: scale(0.95);
-  color: #000;
 }
 
 #controls button:hover {

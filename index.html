@@ -8,6 +8,7 @@
 </head>
 <body>
   <div id="controls">
+    <h2 class="controls-title">Synth Controls</h2>
     <div class="control-row">
       <label for="oscillatorType">Oscillator Type:</label>
       <select id="oscillatorType">
@@ -40,6 +41,25 @@
     <button id="applySettings">Apply Settings</button>
   </div>
   <div id="container"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.21/vanta.net.min.js"></script>
+  <script>
+VANTA.NET({
+  el: "body",
+  mouseControls: true,
+  touchControls: true,
+  gyroControls: false,
+  minHeight: 200.00,
+  minWidth: 200.00,
+  scale: 1.00,
+  scaleMobile: 1.00,
+  color: 0x315561,
+  backgroundColor: 0x111111,
+  points: 20.00,
+  maxDistance: 24.00,
+  spacing: 20.00
+})
+  </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.26/Tone.min.js"></script>
   <script src="src/main.js"></script>
 </body>
