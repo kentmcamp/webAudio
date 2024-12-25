@@ -1,32 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tone.js Project</title>
-    <link rel="stylesheet" href="./src/style.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.26/Tone.js"></script>
-  </head>
-  <body>
-    <div id="container"></div>
-    <script src="./src/main.js"></script>
-    <!-- <script>
-      var notes = ["C", "D", "E", "F", "G", "A", "B"];
-      var html = "";
-      var synth = new Tone.PolySynth().toMaster();
-
-      for (var i = 0; i < notes.length; i++) {
-        var note = notes[i];
-        html += `<div class='whitenote' onmousedown='noteDown(this)' data-note='${note + '4'}'></div>`;
-      }
-
-      document.getElementById("container").innerHTML = html;
-
-      function noteDown(elem) {
-        var note = elem.dataset.note;
-        // alert(note);
-        synth.triggerAttackRelease(note, "16n");
-      }
-    </script> -->
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="src/style.css">
+  <title>Piano Synth</title>
+</head>
+<body>
+  <div id="controls">
+    <div class="control-row">
+      <label for="oscillatorType">Oscillator Type:</label>
+      <select id="oscillatorType">
+        <option value="sine">Sine</option>
+        <option value="square">Square</option>
+        <option value="triangle">Triangle</option>
+        <option value="sawtooth">Sawtooth</option>
+      </select>
+    </div>
+    <div class="control-row">
+      <label for="attack">Attack:</label>
+      <input type="number" id="attack" step="0.01" value="0.1">
+    </div>
+    <div class="control-row">
+      <label for="release">Release:</label>
+      <input type="number" id="release" step="0.01" value="0.5">
+    </div>
+    <div class="control-row">
+      <label for="reverbToggle">Reverb:</label>
+      <input type="checkbox" id="reverbToggle" checked>
+    </div>
+    <div class="control-row">
+      <label for="chorusToggle">Chorus:</label>
+      <input type="checkbox" id="chorusToggle">
+    </div>
+    <div class="control-row">
+      <label for="delayToggle">Delay:</label>
+      <input type="checkbox" id="delayToggle">
+    </div>
+    <button id="applySettings">Apply Settings</button>
+  </div>
+  <div id="container"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.26/Tone.min.js"></script>
+  <script src="src/main.js"></script>
+</body>
 </html>
