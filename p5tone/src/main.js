@@ -1,34 +1,30 @@
-import './style.css';
+var notes = ["C", "D", "E", "F", "G", "A", "B"];
+var html = "";
+var synth = new Tone.PolySynth().toMaster();
 
-document.querySelector('#app').innerHTML = `
-  <button id="start-noise">Play Sound</button>
-  <button id="stop-noise">Stop Sound</button>
-`;
+for (var i = 0; i < notes.length; i++) {
+  var hasSharp = true;
+  var note = notes[i];
 
-let noise;
-let isPlaying = false;
+  if (note == "E" || note == "B") hasSharp = false;
 
-document.getElementById('start-noise').addEventListener('click', () => {
-  if (!isPlaying) {
-    new p5((p) => {
-      p.setup = function() {
-        p.createCanvas(400, 400);
-        noise = new p5.Noise('brown');
-        noise.amp(0.5);
-        noise.start();
-        isPlaying = true;
-      };
+  html += `<div class='whitenote' onmousedown='noteDown(this)' data-note='${
+    note + "4"
+  }'>`;
 
-      // p.draw = function() {
-      //   p.background(220);
-      // };
-    });
+  if (hasSharp) {
+    html += `<div class='blacknote' onmousedown='noteDown(this)' data-note='${
+      note + "#4"
+    }'></div>`;
   }
-});
+  html += "</div>";
+}
 
-document.getElementById('stop-noise').addEventListener('click', () => {
-  if (noise && isPlaying) {
-    noise.stop();
-    isPlaying = false;
-  }
-});
+document.getElementById("container").innerHTML = html;
+
+function noteDown(elem) {
+  var note = elem.dataset.note;
+  // alert(note);
+  synth.triggerAttackRelease(note, "16n");
+  event.stopPropagation();
+}

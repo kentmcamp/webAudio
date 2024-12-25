@@ -1,14 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>p5.js and Tone.js Project</title>
-</head>
-<body>
-  <div id="app"></div>
-  <script src="./libs/p5.js"></script>
-  <script src="./libs/p5.sound.js"></script>
-  <script type="module" src="./src/main.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tone.js Project</title>
+    <link rel="stylesheet" href="./src/style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.26/Tone.js"></script>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script src="./src/main.js"></script>
+    <!-- <script>
+      var notes = ["C", "D", "E", "F", "G", "A", "B"];
+      var html = "";
+      var synth = new Tone.PolySynth().toMaster();
+
+      for (var i = 0; i < notes.length; i++) {
+        var note = notes[i];
+        html += `<div class='whitenote' onmousedown='noteDown(this)' data-note='${note + '4'}'></div>`;
+      }
+
+      document.getElementById("container").innerHTML = html;
+
+      function noteDown(elem) {
+        var note = elem.dataset.note;
+        // alert(note);
+        synth.triggerAttackRelease(note, "16n");
+      }
+    </script> -->
+  </body>
 </html>
